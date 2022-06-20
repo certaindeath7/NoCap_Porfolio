@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './About.scss';
 import { motion } from 'framer-motion';
-
+import { Wrap } from '../../wrapper';
 import { urlFor, client } from '../../client';
 const About = () => {
   const [abouts, setAbout] = useState([]);
@@ -24,7 +24,9 @@ const About = () => {
   return (
     <>
       {/* Fragment shortcut */}
-      <h2 className="head-text">This sums up me as an employee</h2>
+      <h2 className="head-text">
+        This <span>sums</span> up me as an <span>Employee</span>
+      </h2>
       <div className="app__profiles">
         {abouts.map((content, value) => (
           <motion.div
@@ -47,4 +49,4 @@ const About = () => {
     </>
   );
 };
-export default About;
+export default Wrap(About, 'about');

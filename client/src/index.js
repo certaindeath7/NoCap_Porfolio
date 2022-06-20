@@ -1,6 +1,8 @@
 import React from 'react';
-import ReactDOM from 'react-dom'; //help to connect to HTMl file
+import ReactDOM from 'react-dom/client'; //help to connect to HTMl file
 import App from './App';
 import './index.css';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+const container = document.getElementById('root');
+const root = ReactDOM.createRoot(container);
+root.render(<App />);
