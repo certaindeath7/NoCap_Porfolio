@@ -184,7 +184,7 @@ $solarized-dark-il: #2aa198;
   }
 }
 
-.app__social {
+.app__socialIcons {
   display: flex;
   justify-content: flex-end;
   align-items: center;
@@ -235,7 +235,7 @@ $solarized-dark-il: #2aa198;
   }
 }
 
-.app__navigation {
+.app__navigationScrolls {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -243,13 +243,13 @@ $solarized-dark-il: #2aa198;
 
   padding: 1rem;
 
-  .app__navigation-dot {
+  .app__navigationScrolls-dot {
     width: 10px;
     height: 10px;
     border-radius: 50%;
     background-color: #cbcbcb;
     margin: 0.5rem;
-
+    font-size: 0;
     transition: background-color 0.2s ease-in-out;
 
     &:hover {
