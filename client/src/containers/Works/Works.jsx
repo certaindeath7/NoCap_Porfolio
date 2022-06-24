@@ -1,22 +1,31 @@
 import React, { useState, useEffect } from 'react';
 import { AiFillEye, AiFillGithub } from 'react-icons/ai';
 import { motion } from 'framer-motion';
-import { Wrap } from '../../wrapper';
+import { Wrap, Motion } from '../../wrapper';
 import { client, urlFor } from '../../client';
 
 import './Works.scss';
 
 const Works = () => {
+  // all the projects
   const [projects, setProjects] = useState([]);
+
+  // get the projects according to their tags
   const [projectItem, setProjectItem] = useState([]);
+
+  // tag name
   const [activeChosenItem, setActiveChosenItem] = useState('All');
+
+  // each project item container
   const [animateCard, setAnimateCard] = useState({ y: 0, opacity: 1 });
 
   const fetchData = async (projectsQuery) => {
     try {
       const data = await client.fetch(projectsQuery);
       if (data) {
+        // get all the projects available in the database
         setProjects(data);
+        // get all the projects available in associates to each tag
         setProjectItem(data);
       }
     } catch (error) {
@@ -29,18 +38,27 @@ const Works = () => {
     fetchData(projectsQuery);
   }, []);
 
-  const handlePastProjects = (project) => {
-    setProjectItem(project);
+  const handlePastProjects = (activeChosenItem) => {
+    setActiveChosenItem(activeChosenItem);
     setAnimateCard([
       {
         y: 100,
         opacity: 0,
       },
     ]);
+
+    setTimeout(() => {
+      setAnimateCard([{ y: 0, opacity: 1 }]);
+      if (activeChosenItem === 'All') {
+        setProjectItem(projects);
+      } else {
+        setProjectItem(projects.filter((p) => p.tags.includes(activeChosenItem)));
+      }
+    }, 250);
   };
   return (
     <>
-      <h2>
+      <h2 className="head-text">
         My <span>Work</span>
       </h2>
       <div className="app__pastProjects">
@@ -61,6 +79,7 @@ const Works = () => {
         transition={{ duration: 0.5, delayChildren: 0.5 }}
         className="app__project-portfolio"
       >
+        {/*build container for each project*/}
         {projectItem.map((content, value) => (
           <div className="app__project-item app__flex" key={value}>
             <div className="app__project-img app__flex">
@@ -115,4 +134,4 @@ const Works = () => {
   );
 };
 
-export default Wrap(Works, 'works');
+export default Wrap(Motion(Works, 'app__works'), 'works', 'app__primarybg');
