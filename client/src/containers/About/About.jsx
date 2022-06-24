@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './About.scss';
 import { motion } from 'framer-motion';
-import { Wrap } from '../../wrapper';
+import { Wrap, Motion } from '../../wrapper';
 import { urlFor, client } from '../../client';
 const About = () => {
   const [abouts, setAbout] = useState([]);
@@ -49,4 +49,4 @@ const About = () => {
     </>
   );
 };
-export default Wrap(About, 'about');
+export default Wrap(Motion(About, 'app__about'), 'about', 'app__whitebp');
