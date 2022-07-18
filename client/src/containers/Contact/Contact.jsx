@@ -63,7 +63,7 @@ const Contact = () => {
               value={name || ''}
               onChange={handleChange}
             />
-            {errors.name && <p className="danger">{errors.name}</p>}
+            {errors.name && <p style={{ color: 'red' }}>{errors.name}</p>}
           </div>
           <div className="app__flex">
             <input
@@ -74,7 +74,7 @@ const Contact = () => {
               value={email}
               onChange={handleChange}
             />
-            {errors.email && <p className="danger">{errors.email}</p>}
+            {errors.email && <p style={{ color: 'red' }}>{errors.email}</p>}
           </div>
           <div className="app__flex">
             <input
@@ -85,7 +85,7 @@ const Contact = () => {
               value={subject}
               onChange={handleChange}
             />
-            {errors.subject && <p className="danger">{errors.subject}</p>}
+            {errors.subject && <p style={{ color: 'red' }}>{errors.subject}</p>}
           </div>
           <div className="app__flex">
             <textarea
@@ -96,7 +96,7 @@ const Contact = () => {
               value={message}
               onChange={handleChange}
             />
-            {errors.message && <p className="danger">{errors.message}</p>}
+            {errors.message && <p style={{ color: 'red' }}>{errors.message}</p>}
           </div>
           <button type="submit" className="p-text" onClick={handleSubmit}>
             {!loading ? 'Send Message' : 'Sending...'}
