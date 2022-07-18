@@ -3,7 +3,7 @@ import React from 'react';
 const NavigationScrolls = ({ active }) => {
   return (
     <div className="app__navigationScrolls">
-      {['home', 'about', 'works', 'skills', 'contacts'].map((item, index) => (
+      {['home', 'about', 'works', 'skills', 'contact'].map((item, index) => (
         // return to single value
         <a
           href={`#${item}`}

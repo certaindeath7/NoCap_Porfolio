@@ -264,8 +264,8 @@ $solarized-dark-il: #2aa198;
 }
 
 @media screen and (max-width: 500px) {
-  .app__navigation,
-  .app__social {
+  .app__navigationScrolls,
+  .app__socialIcons {
     display: none;
   }
 
