@@ -49,4 +49,4 @@ const About = () => {
     </>
   );
 };
-export default Wrap(Motion(About, 'app__about'), 'about', 'app__whitebp');
+export default Wrap(Motion(About, 'app__about'), 'about', 'app__whitebg');
